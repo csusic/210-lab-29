@@ -15,26 +15,32 @@
 //main function defintion begins
 
 	//declarations
-	//create map 
+	//create farm map 
    
     //open file
-    //file not found
+    //if file not found, display error and exit 
     
     //retrieve data from an external file
     //at least 100 lines of data
-    //put data into the map
+    //put data into the farm map
     //close file
-    
+
     //driver function to display std::map
 
     //show initial state and how it changes after 25 time periods
+    //move through the names in the map, and simulate changes
+    
+    	//simulate
+    
+    //period of time between intervals, every 4 days
 
 
-        
 //main function definition ends
 
 
 //function definition
-//parameters
+//parameters are the map, and the number of days
 
+	//headers
+   
     //output the map
