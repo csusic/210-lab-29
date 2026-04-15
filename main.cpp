@@ -9,10 +9,10 @@
 
 
 
-//function 
+//function prototype
 
 
-//main function
+//main function defintion begins
 
 	//declarations
 	//create map 
@@ -22,8 +22,19 @@
     
     //retrieve data from an external file
     //at least 100 lines of data
+    //put data into the map
     //close file
+    
+    //driver function to display std::map
+
+    //show initial state and how it changes after 25 time periods
 
 
         
-//main function
+//main function definition ends
+
+
+//function definition
+//parameters
+
+    //output the map
