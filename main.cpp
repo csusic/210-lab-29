@@ -1,24 +1,30 @@
 // COMSC-210 | Lab 29 | Christine Susic
 
 //header files
-
-
-//simulation structure is a farm of 3 lists: Grains, Fruits, and Vegetables
-//3-element std::array of std::lists
-
-//std::map
-
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <string>
+#include <map>
+#include <array>
+#include <list>
+using namespace std;
 
 //constant column widths
-
+const int W1 = 10;
 
 //function prototype for printing the map
-
+void displayState(const map<string, array<list<int>, 3>>& farmMap, int);
 
 //main function defintion begins
-
+int main() {
 	//declarations
 	//create farm map 
+	//simulation structure is a farm of 3 lists: Grains, Fruits, and Vegetables
+    //std::map with 3-element std::array of std::lists
+    std::map<string, std::array<std::list<int>, 3>> farmMap;
+    
+    farmMap[0].push_back(10);
    
     //open file
     //if file not found, display error and exit 
@@ -42,14 +48,10 @@
         //simulate pests/disease
         //remove all elements
                
-        //period of time between intervals, every 4 years
-        
+        //period of time between intervals, every 4 days
+}
 //main function definition ends
-
 
 //function definition for printing the map
 //parameters are the map, and the number of years
-
-	//headers
-   
-    //output the map
+//output the map
