@@ -57,4 +57,9 @@ int main() {
 //function definition for printing the map
 //parameters are the map, and the number of years
 //output the map
+void displayState(const map<string, array<list<int>, 3>>& farmMap, int a) {
+    cout << setw(W1) << "Farm";
 
+for (const auto& it : farmMap) {
+    cout << setw(W1) << it.first;
+}
