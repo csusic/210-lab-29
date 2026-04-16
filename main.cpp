@@ -24,7 +24,9 @@ int main() {
     //std::map with 3-element std::array of std::lists
     std::map<string, std::array<std::list<int>, 3>> farmMap;
     
-    farmMap[0].push_back(10);
+    farmMap["A"][0].push_back(10);
+     
+    displayState(farmMap, 0);
    
     //open file
     //if file not found, display error and exit 
@@ -55,3 +57,4 @@ int main() {
 //function definition for printing the map
 //parameters are the map, and the number of years
 //output the map
+
