@@ -1,10 +1,16 @@
 // COMSC-210 | Lab 29 | Christine Susic
 
 Overview:
-This project simulates how crop yields of grains, fruits, and vegetables change over every four years. The simulation will allow you to affect data from the simulation, in order to directly compare statistics.
+This project simulates how farm crop yields of grains, fruits, and vegetables change 
+over every four years, for a hundred years. The simulation will allow you to affect 
+data from the simulation, in order to directly compare statistics.
 
 Implementation:
-An std::array of lists is used to store the lists of different yields. An std::map
+An std::array of lists is used to store the lists of different yields of grains, 
+fruits, and vegetables. An std::map is used to store the name of the farm as the 
+key, and the three array of lists as its value. 
 
-Simulation: 
-The simulation will involve changes in the weather for the year
+Simulation:
+The simulation will involve changes in the weather for the year, such as increased 
+rainfall or heat, which will either positively or negatively impact crop yield. 
+As well, pests and disease could affect the yield of the crop.
