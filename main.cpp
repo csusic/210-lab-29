@@ -5,7 +5,6 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
-#include <sstream>
 #include <map>
 #include <array>
 #include <list>
@@ -70,15 +69,16 @@ int main() {
                 //subtraction of crops by removing the first element
                 if (!it.second[i].empty()) {
                     it.second[i].pop_front();
-                    }
+                }
                 //simulate increased rainfall 
                 //addition of crops by adding to the back
-                    it.second[i].push_back(1); 
-                }
+                it.second[i].push_back(1); 
                 //simulate pests/disease
                 //remove all elements
+                //it.second[i].clear();
+            }
+                
         }
-               
         //period of time between intervals, every 4 years
         if (year % 4 == 0) {
             cout << "Year " << year << endl;
@@ -91,14 +91,14 @@ int main() {
 
 //function definition for printing the map
 //parameters are the map, and the number of years
-//output the map
 void displayState(const map<string, array<list<int>, 3>>& farmMap, int a) {
-    cout << setw(W1) << "Farm";
-    cout << setw(W2) << "Grains";
-    cout << setw(W2) << "Fruits";
-    cout << setw(W2) << "Vegetables" << endl;
-    cout << "------------------------------------------------------------" << endl;
-
+//headers 
+cout << setw(W1) << "Farm";
+cout << setw(W2) << "Grains";
+cout << setw(W2) << "Fruits";
+cout << setw(W2) << "Vegetables" << endl;
+cout << "------------------------------------------------------------" << endl;
+//output the map
 for (const auto& it : farmMap) {
     cout << setw(W1) << it.first;
     for (int i = 0; i < 3; i++) {
