@@ -10,8 +10,8 @@
 #include <list>
 using namespace std;
 
-//constant column widths
-const int W1 = 12, W2 = 15;
+//constant column widths, minimum and maximum values for random number
+const int W1 = 12, W2 = 20, MIN = 1, MAX = 100;
 
 //function prototype for printing the map
 void displayState(const map<string, array<list<int>, 3>>& farmMap, int);
@@ -19,6 +19,9 @@ void displayState(const map<string, array<list<int>, 3>>& farmMap, int);
 //main function defintion begins
 int main() {
 	//declarations
+	srand(time(0));
+	int choice; //choice for menu
+	int random = rand() % (MAX-MIN+1) + MIN; //random data for increased crops
 	//create farm map 
 	//simulation structure is a farm of 3 lists: Grains, Fruits, and Vegetables
     //std::map with 3-element std::array of std::lists
@@ -47,9 +50,17 @@ int main() {
     //close file
     fin.close();
     
-    //call function to display std::map for modifications
-    for (int year = 1; year <= 101; year +=4) {
+    //data for 25 years of crops
+    cout << "25 Years of Crops" << endl;
+    for (int year = 4; year <= 100; year +=4) {
         //display initial year value
+        displayState(farmMap, year);
+    }
+    
+    cout << "Start of Simulation" << endl;
+    //call function to display std::map for modifications
+    for (int year = 4; year <= 100; year +=4) {
+        //display initial year value to modify
         displayState(farmMap, year);
         //display simulation menu
         cout << endl;
@@ -60,59 +71,33 @@ int main() {
         cout << "[4] Quit" << endl;
         cout << "Input choice: ";
         //insert choice
-        int choice;
         cin >> choice;
         cout << endl;
-        //for loop 
+        //for loop to access farmMap
         for (auto& it : farmMap) {
             for (int i = 0; i < 3; i++) {
-                //simulate increased heat
+                //if choice = 1, simulate increased heat
                 //subtraction of crops by removing the first element
                 if (choice == 1) {
                     it.second[i].pop_front();
                 }
-                //simulate increased rainfall 
+                //if choice = 2, simulate increased rainfall 
                 //addition of crops by adding to the back
                 if (choice == 2) {
-                    it.second[i].push_back(1); 
+                    it.second[i].push_back(random); 
                 }
-                //simulate pests/disease
+                //if choice = 3, simulate pests/disease
                 //remove all elements
                 if (choice == 3) {
                     it.second[i].clear();
                 }
+                //if choice = 4, quit the program
                 if (choice == 4) {
                     exit(0);
                 }
             }
         }
     }
-
-    /*//show initial state and how it changes after 25 time periods
-    //move through the names in the map, and simulate changes
-     for (int year = 1; year <= 100; year++) {
-        for (auto& it : farmMap) {
-            for (int i = 0; i < 3; i++) {
-                //simulate increased heat
-                //subtraction of crops by removing the first element
-                if (!it.second[i].empty()) {
-                    it.second[i].pop_front();
-                }
-                //simulate increased rainfall 
-                //addition of crops by adding to the back
-                it.second[i].push_back(1); 
-                //simulate pests/disease
-                //remove all elements
-                //it.second[i].clear();
-            }
-                
-        }
-        //period of time between intervals, every 4 years
-        if (year % 4 == 0) {
-            //call driver function to display std::map
-            displayState(farmMap, year);
-        }
-    }*/
 }
 //main function definition ends
 
@@ -125,7 +110,7 @@ cout << setw(W1) << "Farm";
 cout << setw(W2) << "Grains";
 cout << setw(W2) << "Fruits";
 cout << setw(W2) << "Vegetables" << endl;
-cout << "------------------------------------------------------------" << endl;
+cout << "-------------------------------------------------------------------------" << endl;
 //output the map
 for (const auto& it : farmMap) {
     cout << setw(W1) << it.first;
