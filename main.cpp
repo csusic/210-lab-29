@@ -49,28 +49,41 @@ int main() {
     
     //call function to display std::map for modifications
     for (int year = 1; year <= 101; year +=4) {
-        //initial value
+        //display initial year value
         displayState(farmMap, year);
+        //display simulation menu
         cout << endl;
+        cout << "Simulation Menu" << endl;
+        cout << "[1] Heat Wave" << endl;
+        cout << "[2] Increased Rainfall" << endl;
+        cout << "[3] Pests/disease" << endl;
+        cout << "[4] Quit" << endl;
         cout << "Input choice: ";
+        //insert choice
         int choice;
         cin >> choice;
+        cout << endl;
+        //for loop 
         for (auto& it : farmMap) {
             for (int i = 0; i < 3; i++) {
-            //subtraction of crops by removing the first element
-            if (choice == 1) {
-                it.second[i].pop_front();
-            }
-            //simulate increased rainfall 
-            //addition of crops by adding to the back
-            if (choice == 2) {
-                it.second[i].push_back(1); 
-            }
-            //simulate pests/disease
-            //remove all elements
-            if (choice == 3) {
-                it.second[i].clear();
-            }
+                //simulate increased heat
+                //subtraction of crops by removing the first element
+                if (choice == 1) {
+                    it.second[i].pop_front();
+                }
+                //simulate increased rainfall 
+                //addition of crops by adding to the back
+                if (choice == 2) {
+                    it.second[i].push_back(1); 
+                }
+                //simulate pests/disease
+                //remove all elements
+                if (choice == 3) {
+                    it.second[i].clear();
+                }
+                if (choice == 4) {
+                    exit(0);
+                }
             }
         }
     }
