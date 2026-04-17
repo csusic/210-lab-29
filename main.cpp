@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
+#include <sstream>
 #include <map>
 #include <array>
 #include <list>
@@ -24,22 +25,40 @@ int main() {
     //std::map with 3-element std::array of std::lists
     std::map<string, std::array<std::list<int>, 3>> farmMap;
     
+    //dummy values
+    //grains farmMap[][0]
     farmMap["A"][0].push_back(10);
     farmMap["A"][0].push_back(22);
+    //fruits farmMap[][1]
     farmMap["A"][1].push_back(53);
+    //vegetables farmMap[][2]
     farmMap["B"][2].push_back(10);
-    
-    displayState(farmMap, 0);
    
-    //open file
-    //if file not found, display error and exit 
-    
     //retrieve data from an external file
     //at least 100 lines of data
+    //open file
+    ifstream fin("data.txt");
     //put data into the farm map
+    string farm;
+    if (fin.good()) {
+    	while (getline(fin, farm)) {
+    	    
+         farm >> type >> yield;
+        	if (type == "Grains") index = 0;
+        	else if (type == "Fruits") index = 1;
+        	else if (type == "Vegetables") index = 2;
+        	farmMap[]
+        	farmMap[farm][index].push_back(yield);
+    	}
+    }
+    //if file not found, display error and exit 
+    else
+        cout << "Input file not found.\n";
     //close file
+    fin.close();
 
-    //driver function to display std::map
+    //call driver function to display std::map
+    displayState(farmMap, 0);
 
     //show initial state and how it changes after 25 time periods
     //move through the names in the map, and simulate changes
