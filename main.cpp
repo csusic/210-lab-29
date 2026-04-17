@@ -43,7 +43,12 @@ int main() {
     int v1, v2, v3;
     if (fin.good()) {
         while (fin >> key >> v1 >> v2 >> v3) {
-            farmMap[key] = {v1, v2, v3};
+            //grains
+            farmMap[key][0].push_back(v1);
+            //fruits
+            farmMap[key][1].push_back(v2);
+            //vegetables
+            farmMap[key][2].push_back(v3);
         }
     }
     //if file not found, display error and exit 
@@ -57,7 +62,7 @@ int main() {
 
     //show initial state and how it changes after 25 time periods
     //move through the names in the map, and simulate changes
-
+    
         //simulate increased heat
         //subtraction of crops by removing the first element
 
