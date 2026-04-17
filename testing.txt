@@ -1,0 +1,22 @@
+I would use unit testing to test my functions by inputting the correct 
+parameters into the function definition, and outputting the contents to 
+see if it was done correctly. I chose to create a function to print the 
+main contents of the std::map, in my case, the farmMap. I would check the 
+output against the file data it is read from, to make sure that the output 
+is correct. I would also make small changes in the output formatting, 
+like with the set widths, to make the data more readable. 
+
+This is the main print output for the farmMap.
+
+for (const auto& it : farmMap) {
+    cout << setw(W1) << it.first;
+    for (int i = 0; i < 3; i++) {
+        string listContent = "";
+        for (int value : it.second[i]) {
+            listContent += to_string(value) + " ";
+        }
+        cout << setw(W2) << listContent;
+        }
+        cout << endl;
+    }
+}
