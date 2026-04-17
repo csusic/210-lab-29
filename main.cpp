@@ -68,9 +68,12 @@ int main() {
             for (int i = 0; i < 3; i++) {
                 //simulate increased heat
                 //subtraction of crops by removing the first element
+                if (!it.second[i].empty()) {
                     it.second[i].pop_front();
+                    }
                 //simulate increased rainfall 
                 //addition of crops by adding to the back
+                    it.second[i].push_back(1); 
                 }
                 //simulate pests/disease
                 //remove all elements
@@ -78,6 +81,7 @@ int main() {
                
         //period of time between intervals, every 4 years
         if (year % 4 == 0) {
+            cout << "Year " << year << endl;
             //call driver function to display std::map
             displayState(farmMap, year);
         }
