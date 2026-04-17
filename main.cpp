@@ -56,23 +56,32 @@ int main() {
         cout << "Input file not found.\n";
     //close file
     fin.close();
-
-    //call driver function to display std::map
+    
+    //initial value
+    cout << "Year 1" << endl;
     displayState(farmMap, 0);
 
     //show initial state and how it changes after 25 time periods
     //move through the names in the map, and simulate changes
-    
-        //simulate increased heat
-        //subtraction of crops by removing the first element
-
-        //simulate increased rainfall 
-        //addition of crops by adding to the back
-        
-        //simulate pests/disease
-        //remove all elements
+     for (int year = 1; year <= 100; year++) {
+        for (auto& it : farmMap) {
+            for (int i = 0; i < 3; i++) {
+                //simulate increased heat
+                //subtraction of crops by removing the first element
+                    it.second[i].pop_front();
+                //simulate increased rainfall 
+                //addition of crops by adding to the back
+                }
+                //simulate pests/disease
+                //remove all elements
+        }
                
-        //period of time between intervals, every 4 days
+        //period of time between intervals, every 4 years
+        if (year % 4 == 0) {
+            //call driver function to display std::map
+            displayState(farmMap, year);
+        }
+    }
 }
 //main function definition ends
 
