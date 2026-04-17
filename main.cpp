@@ -1,4 +1,4 @@
-// COMSC-210 | Lab 29 | Christine Susi
+// COMSC-210 | Lab 30 | Christine Susic
 
 //header files
 #include <iostream>
@@ -11,7 +11,7 @@
 using namespace std;
 
 //constant column widths
-const int W1 = 10;
+const int W1 = 12, W2 = 15;
 
 //function prototype for printing the map
 void displayState(const map<string, array<list<int>, 3>>& farmMap, int);
@@ -24,10 +24,11 @@ int main() {
     //std::map with 3-element std::array of std::lists
     std::map<string, std::array<std::list<int>, 3>> farmMap;
     
-    //dummy value
     farmMap["A"][0].push_back(10);
-     
-    //driver function to display std::map
+    farmMap["A"][0].push_back(22);
+    farmMap["A"][1].push_back(53);
+    farmMap["B"][2].push_back(10);
+    
     displayState(farmMap, 0);
    
     //open file
@@ -37,6 +38,8 @@ int main() {
     //at least 100 lines of data
     //put data into the farm map
     //close file
+
+    //driver function to display std::map
 
     //show initial state and how it changes after 25 time periods
     //move through the names in the map, and simulate changes
@@ -59,8 +62,20 @@ int main() {
 //output the map
 void displayState(const map<string, array<list<int>, 3>>& farmMap, int a) {
     cout << setw(W1) << "Farm";
+    cout << setw(W2) << "Grains";
+    cout << setw(W2) << "Fruits";
+    cout << setw(W2) << "Vegetables" << endl;
+    cout << "------------------------------------------------------------" << endl;
 
-    for (const auto& it : farmMap) {
-        cout << setw(W1) << it.first;
+for (const auto& it : farmMap) {
+    cout << setw(W1) << it.first;
+    for (int i = 0; i < 3; i++) {
+        string listContent = "";
+        for (int value : it.second[i]) {
+            listContent += to_string(value) + " ";
+        }
+        cout << setw(W2) << listContent;
+        }
+        cout << endl;
     }
 }
