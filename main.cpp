@@ -57,8 +57,7 @@ int main() {
     fin.close();
     
     //initial value
-    cout << "Year 1" << endl;
-    displayState(farmMap, 0);
+    displayState(farmMap, 1);
 
     //show initial state and how it changes after 25 time periods
     //move through the names in the map, and simulate changes
@@ -81,7 +80,6 @@ int main() {
         }
         //period of time between intervals, every 4 years
         if (year % 4 == 0) {
-            cout << "Year " << year << endl;
             //call driver function to display std::map
             displayState(farmMap, year);
         }
@@ -91,8 +89,9 @@ int main() {
 
 //function definition for printing the map
 //parameters are the map, and the number of years
-void displayState(const map<string, array<list<int>, 3>>& farmMap, int a) {
+void displayState(const map<string, array<list<int>, 3>>& farmMap, int year) {
 //headers 
+cout << "Year " << year << endl;
 cout << setw(W1) << "Farm";
 cout << setw(W2) << "Grains";
 cout << setw(W2) << "Fruits";
