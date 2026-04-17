@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
+#include <cmath>
 #include <map>
 #include <array>
 #include <list>
@@ -21,7 +22,6 @@ int main() {
 	//declarations
 	srand(time(0));
 	int choice; //choice for menu
-	int random = rand() % (MAX-MIN+1) + MIN; //random data for increased crops
 	//create farm map 
 	//simulation structure is a farm of 3 lists: Grains, Fruits, and Vegetables
     //std::map with 3-element std::array of std::lists
@@ -50,13 +50,6 @@ int main() {
     //close file
     fin.close();
     
-    //data for 25 years of crops
-    cout << "25 Years of Crops" << endl;
-    for (int year = 4; year <= 100; year +=4) {
-        //display initial year value
-        displayState(farmMap, year);
-    }
-    
     cout << "Start of Simulation" << endl;
     //call function to display std::map for modifications
     for (int year = 4; year <= 100; year +=4) {
@@ -84,6 +77,8 @@ int main() {
                 //if choice = 2, simulate increased rainfall 
                 //addition of crops by adding to the back
                 if (choice == 2) {
+                    //random data for increased crops
+                    int random = rand() % (MAX-MIN+1) + MIN;
                     it.second[i].push_back(random); 
                 }
                 //if choice = 3, simulate pests/disease
