@@ -23,15 +23,6 @@ int main() {
 	//simulation structure is a farm of 3 lists: Grains, Fruits, and Vegetables
     //std::map with 3-element std::array of std::lists
     std::map<string, std::array<std::list<int>, 3>> farmMap;
-    
-    //dummy values
-    //grains farmMap[][0]
-    farmMap["A"][0].push_back(10);
-    farmMap["A"][0].push_back(22);
-    //fruits farmMap[][1]
-    farmMap["A"][1].push_back(53);
-    //vegetables farmMap[][2]
-    farmMap["B"][2].push_back(10);
    
     //retrieve data from an external file
     //at least 100 lines of data
@@ -56,10 +47,35 @@ int main() {
     //close file
     fin.close();
     
-    //initial value
-    displayState(farmMap, 1);
+    //call function to display std::map for modifications
+    for (int year = 1; year <= 101; year +=4) {
+        //initial value
+        displayState(farmMap, year);
+        cout << endl;
+        cout << "Input choice: ";
+        int choice;
+        cin >> choice;
+        for (auto& it : farmMap) {
+            for (int i = 0; i < 3; i++) {
+            //subtraction of crops by removing the first element
+            if (choice == 1) {
+                it.second[i].pop_front();
+            }
+            //simulate increased rainfall 
+            //addition of crops by adding to the back
+            if (choice == 2) {
+                it.second[i].push_back(1); 
+            }
+            //simulate pests/disease
+            //remove all elements
+            if (choice == 3) {
+                it.second[i].clear();
+            }
+            }
+        }
+    }
 
-    //show initial state and how it changes after 25 time periods
+    /*//show initial state and how it changes after 25 time periods
     //move through the names in the map, and simulate changes
      for (int year = 1; year <= 100; year++) {
         for (auto& it : farmMap) {
@@ -83,7 +99,7 @@ int main() {
             //call driver function to display std::map
             displayState(farmMap, year);
         }
-    }
+    }*/
 }
 //main function definition ends
 
