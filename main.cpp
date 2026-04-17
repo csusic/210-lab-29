@@ -39,17 +39,12 @@ int main() {
     //open file
     ifstream fin("data.txt");
     //put data into the farm map
-    string farm;
+    string key;
+    int v1, v2, v3;
     if (fin.good()) {
-    	while (getline(fin, farm)) {
-    	    
-         farm >> type >> yield;
-        	if (type == "Grains") index = 0;
-        	else if (type == "Fruits") index = 1;
-        	else if (type == "Vegetables") index = 2;
-        	farmMap[]
-        	farmMap[farm][index].push_back(yield);
-    	}
+        while (fin >> key >> v1 >> v2 >> v3) {
+            farmMap[key] = {v1, v2, v3};
+        }
     }
     //if file not found, display error and exit 
     else
