@@ -1,12 +1,12 @@
 Bugs
 
-1. 
-2.
+1. I didn't have the appropriate header files included.
+2. I had an incorrect number of braces.
 3. The file data was not reading correctly.
 4. I changed the name of int v1, and forgot to update it in its other location.
-5. 
-6. I didn't have the appropriate header files included.
-7. I got the wrong number of loops.
+5. The file data was not outputting correctly. I had to figure out the correct way to put data into the farm map.
+6. The data file wasn't formatted correctly for the way that I was reading the data. 
+7. I kept getting the wrong number of loops, so had to finagle that to get the number of loops I needed.
 8.
-9. The data file wasn't formatted correctly for the way that I was reading the data.
-10. The output wasn't very clear, so I used set widths and end lines.
+9.
+10. The output wasn't very clear, so I used set widths and end lines in order to make the output more readable.
