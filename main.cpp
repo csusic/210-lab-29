@@ -1,4 +1,4 @@
-// COMSC-210 | Lab 30 | Christine Susic
+// COMSC-210 | Lab 30 | Christine Susi
 
 //header files
 #include <iostream>
